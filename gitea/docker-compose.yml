@@ -20,8 +20,10 @@ services:
     volumes:
       - /gitea-data:/data
     networks:
-      - traefik-proxy
-      - gitea_net
+      traefik-proxy:
+        aliases:
+          - gitea
+      gitea_net:
     depends_on:
       - postgres
     labels:
