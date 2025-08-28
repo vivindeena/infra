@@ -36,10 +36,10 @@ services:
       - "traefik.docker.network=traefik-proxy"
 
       # TCP Router for SSH
-      - "traefik.tcp.routers.gitea-ssh.rule=HostSNI(`*`)"
-      - "traefik.tcp.routers.gitea-ssh.entrypoints=ssh"
-      - "traefik.tcp.routers.gitea-ssh.service=gitea-ssh-svc"
-      - "traefik.tcp.services.gitea-ssh-svc.loadbalancer.server.port=2222"
+      # - "traefik.tcp.routers.gitea-ssh.rule=HostSNI(`*`)"
+      # - "traefik.tcp.routers.gitea-ssh.entrypoints=ssh"
+      # - "traefik.tcp.routers.gitea-ssh.service=gitea-ssh-svc"
+      # - "traefik.tcp.services.gitea-ssh-svc.loadbalancer.server.port=2222"
 
   postgres:
     image: postgres:16
