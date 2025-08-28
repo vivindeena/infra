@@ -10,6 +10,8 @@ entryPoints:
 
   websecure:
     address: ":443"
+  ssh:
+    address: ":2222"
 
 providers:
   docker:
