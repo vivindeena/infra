@@ -11,9 +11,9 @@ services:
       - GITEA__database__NAME=${POSTGRES_DB}
       - GITEA__database__USER=${POSTGRES_USER}
       - GITEA__database__PASSWD=${POSTGRES_PASSWORD}
-      - GITEA__server__DOMAIN=gitea.vivindeena.xyz
-      - GITEA__server__ROOT_URL=https://gitea.vivindeena.xyz/
-      - GITEA__server__SSH_DOMAIN=gitea.vivindeena.xyz
+      - GITEA__server__DOMAIN=git.vivindeena.xyz
+      - GITEA__server__ROOT_URL=https://git.vivindeena.xyz/
+      - GITEA__server__SSH_DOMAIN=git.vivindeena.xyz
       - GITEA__server__SSH_PORT=2222
       - GITEA__server__START_SSH_SERVER=true
       - GITEA__server__BUILTIN_SSH_SERVER_USER=git
@@ -27,7 +27,7 @@ services:
     labels:
       # HTTP (Web UI)
       - "traefik.enable=true"
-      - "traefik.http.routers.gitea.rule=Host(`gitea.vivindeena.xyz`)"
+      - "traefik.http.routers.gitea.rule=Host(`git.vivindeena.xyz`)"
       - "traefik.http.routers.gitea.entrypoints=websecure"
       - "traefik.http.routers.gitea.tls.certresolver=letsencrypt"
       - "traefik.http.services.gitea.loadbalancer.server.port=3000"
