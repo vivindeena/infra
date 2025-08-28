@@ -1,0 +1,25 @@
+services:
+  webapp:
+    image: nginxdemos/hello:latest   
+    container_name: webapp
+    restart: unless-stopped
+
+    environment:
+      - TZ=${TZ}
+
+    networks:
+      - proxy
+      - webapp_net
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webapp.rule=Host(www.vivindeena.xyz)"
+      - "traefik.http.routers.webapp.entrypoints=websecure"
+      - "traefik.http.routers.webapp.tls.certresolver=letsencrypt"
+      - "traefik.http.services.webapp.loadbalancer.server.port=80"  # hello app listens on 80
+
+networks:
+  proxy:
+    external: true
+  webapp_net:
+    driver: bridge
