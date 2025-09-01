@@ -17,6 +17,7 @@ services:
       - "traefik.http.routers.webapp.entrypoints=websecure"
       - "traefik.http.routers.webapp.tls.certresolver=letsencrypt"
       - "traefik.http.services.webapp.loadbalancer.server.port=80"  # hello app listens on 80
+      - "traefik.docker.network=traefik-proxy"
 
 networks:
   traefik-proxy:
