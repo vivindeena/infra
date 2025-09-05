@@ -13,16 +13,22 @@ entryPoints:
 
 providers:
   docker:
-    exposedByDefault: false   # only route containers you explicitly label
+    exposedByDefault: false
 
 api:
   dashboard: true
+  insecure: false
 
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: vivin.deena@gmail.com    # <-- change this
+      email: vivin.deena@gmail.com
       storage: /letsencrypt/acme.json
       httpChallenge:
         entryPoint: web
 
+log:
+  level: "DEBUG"
+
+accessLog:
+  filePath: "/logs/access.log"
