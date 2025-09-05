@@ -13,6 +13,7 @@ services:
       - "--certificatesresolvers.letsencrypt.acme.email=you@example.com"
       - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
       - "--accesslog=true"   # 👈 enable access logs
+      - "--accesslog.filepath=/logs/access.log"
     ports:
       - "80:80"
       - "443:443"
@@ -20,6 +21,7 @@ services:
       - ./letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/traefik.yml:ro
+      - ./logs:/logs
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.rule=Host(`traefik.vivindeena.xyz`)"
