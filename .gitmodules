@@ -1,0 +1,6 @@
+[submodule "nethttp"]
+	path = nethttp
+	url = ./nethttp
+[submodule "gitea-webhook-handler"]
+	path = gitea-webhook-handler
+	url = ./gitea-webhook-handler
